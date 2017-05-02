@@ -1,0 +1,12 @@
+.ssn-input:focus{
+    outline: none;
+    border: 0px;
+}
+.ssn-input{
+	border: 0px;
+	text-align: center;
+}
+.ssn-field{
+	border: solid 1px;
+	width: 200px;
+}

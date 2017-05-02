@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngMask/3.1.1/ngMask.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+<script type="text/javascript" src="src/Controllers/app.js"></script>
+<script type="text/javascript" src="src/Controllers/SSNCtrl.js"></script>
+<script type="text/javascript" src="src/Controllers/directives.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="SSNCtrl as ssn">
+    <div class="form-group">
+        <div class="ssn-field">
+            <input class="ssn-input" id="inputSSN" mask="999" type="{{ssn.feildType}}" ng-pattern="/^(\d{3})$/"
+                   ng-model="ssn.ssnOne" 
+                   auto-next ng-maxlength="3" tabindex="1" required size="3"
+                   placeholder="SSN"/>
+            <span class=" text-center">-</span>
+            <input class="ssn-input" type="{{ssn.feildType}}" mask="99" ng-pattern="/^(\d{2})$/"
+                   ng-model="ssn.ssnTwo"
+                   auto-next ng-maxlength="2" tabindex="2" required size="2" />
+            <span class=" text-center">-</span>
+            <input class="ssn-input" type="text" mask="9999" ng-pattern="/^(\d{4})$/"
+                   ng-model="ssn.ssnThree" 
+                   auto-next ng-maxlength="4" tabindex="3" required size="4"/>
+        </div>
+    </div>
+    <input type="checkbox" ng-model="ssn.showSSN" ng-click="ssn.hideShowSSN()"/>
+    <label> Show SSN</label>
+    <p> {{ssn.ssnOne + " - " + ssn.ssnTwo + " - " + ssn.ssnThree}} </p>
+</div>
+
+</body>
+</html>
